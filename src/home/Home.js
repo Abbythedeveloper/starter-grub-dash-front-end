@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
 import { listDishes } from "../utils/api";
 import DishCard from "./DishCard";
 import ErrorAlert from "../layout/ErrorAlert";
@@ -18,9 +19,10 @@ function Home({ addToCart }) {
 
   const cards = dishes.map((dish) => (
     <DishCard key={dish.id} dish={dish}>
-      <button className="btn btn-primary" onClick={() => addToCart(dish)}>
-        <span className="oi oi-plus" /> Add to cart
-      </button>
+      <Button variant="dark" onClick={() => addToCart(dish)}>
+        <span className="oi oi-plus mr-2" />
+        Add to cart
+      </Button>
     </DishCard>
   ));
 
